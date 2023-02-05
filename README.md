@@ -73,3 +73,8 @@ const [state, dispatch] = useReducer(reducerFunction, initialValue)
 ```
 
 - what the `dispatch` functions receives that passed to the `reducer` function to **reduce** or **concatenate** with the old state.
+
+### React-Redux Wrapper
+
+- `useSelector` takes a callback with a parameter called `state`
+- `useReducer` takes a callback with two parameters `state` and `action`
