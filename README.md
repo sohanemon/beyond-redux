@@ -78,3 +78,31 @@ const [state, dispatch] = useReducer(reducerFunction, initialValue)
 
 - `useSelector` takes a callback with a parameter called `state`
 - `useReducer` takes a callback with two parameters `state` and `action`
+
+## Redux Reducers
+
+- `Redux` allows only one reducer
+- so we need to use `combineReducers`
+
+```js
+const rootReducer = combineReducers({
+  name: reducerOne,
+  anotherName: reducerTwo,
+});
+// then root reducer will be used to createStore
+```
+
+or use directly as
+
+```js
+const store = createStore({
+  name: reducerOne,
+  anotherName: reducerTwo,
+});
+```
+
+and add it
+
+```js
+<Provider store={store}>...</Provider>
+```
