@@ -1,6 +1,8 @@
 "use client";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Provider } from "react-redux";
 import "./globals.css";
+import store from "../store";
 
 export default function RootLayout({
   children,
@@ -15,7 +17,9 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <ChakraProvider> {children}</ChakraProvider>
+        <ChakraProvider>
+          <Provider store={store}>{children}</Provider>
+        </ChakraProvider>
       </body>
     </html>
   );
