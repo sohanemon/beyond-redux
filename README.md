@@ -179,3 +179,40 @@ export const store = configureStore({
   // as we adding it to the store reducer
 });
 ```
+
+- now read data from the store with `useSelector`, and dispatch actions using `useDispatch`
+- create `selector` function for `useSelector` hook
+
+```js
+export const selectCount = (state: RootState) => state.counter.count;
+// and access as
+const count = useSelector(selectCount);
+```
+
+- export `actions` for `useDispatch` hook
+
+```js
+export const {decrement,increment} = counterSlice.actions
+// and use as
+<Button onPress={() => dispatch(decrement())}>Decrement</Button>
+```
+
+- similarities with `useReducer` from `react`
+
+```js
+const [state, dispatch] = useReducer(reducerFunction, initialState)
+<button onClick={()=>dispatch(action)}>Decrement<button>
+// here dispatching an action
+// and this action is
+action = {
+  type: "DECREMENT",
+  payload: 1
+}
+```
+
+and in `redux-toolkit`
+
+```js
+<button onClick={() => dispatch(decrement(1))}>Decrement</button>
+// where function name is action type and its parameter is the actual payload
+```
