@@ -128,6 +128,25 @@ and add it
 
 # React Toolkit Kickstart
 
+- `redux-toolkit` uses `imer` so we can _mutate_ the state
+  so we can use
+
+```js
+increaseByFive: (state, action) => {
+  state.count = state.count + action.payload;
+  // immutate by imer
+},
+```
+
+not necessary to use like
+
+```js
+decrement: (state, action) => {
+  return { ...state, count: state.count - 1 };
+  // immutate by me
+},
+```
+
 - Start with ` yarn add @reduxjs/toolkit react-redux`
 - configure a store
 
@@ -215,4 +234,15 @@ and in `redux-toolkit`
 ```js
 <button onClick={() => dispatch(decrement(1))}>Decrement</button>
 // where function name is action type and its parameter is the actual payload
+```
+
+- payload/action can be received as
+
+```js
+nothing: (state, action) => {
+  console.log(action.payload); // lol
+  return state
+},
+
+// log message: { type: "counter/decrement", payload: "lol" }
 ```
