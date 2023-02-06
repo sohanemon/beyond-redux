@@ -21,6 +21,18 @@
 - old way of redux
 - is a `middleware` of redux
 - used to handle _async_ operation
+- it returns a `function`
+
+### Middleware
+
+- _middleware_ form in a _curry function_
+
+```js
+const middleware = (state) => (next) => (action){
+  ...
+  return next(); // this is must for execution
+}
+```
 
 ## Redux toolkit
 
